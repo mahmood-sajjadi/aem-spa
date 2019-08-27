@@ -34,22 +34,19 @@ const TextEditConfig = {
     }
 };
 
+const RichTextContent = (props) => {
+    return <div id={extractModelId(props.cqPath)} data-rte-editelement dangerouslySetInnerHTML={{__html:  DOMPurify.sanitize(props.text)}}/>;
+}
+
+const TextContent = (props) => {
+    return <div>{props.text}</div>;
+}
+
 /**
  * Text React component
  */
-class Text extends Component {
-
-    get richTextContent() {
-        return <div id={extractModelId(this.props.cqPath)} data-rte-editelement dangerouslySetInnerHTML={{__html:  DOMPurify.sanitize(this.props.text)}}/>;
-    }
-
-    get textContent() {
-        return <div>{this.props.text}</div>;
-    }
-
-    render() {
-        return this.props.richText ? this.richTextContent : this.textContent;
-    }
+const Text = (props) => {
+    return props.richText ? <RichTextContent /> : <TextContent />;
 }
 
 export default MapTo('mysamplespa/components/text')(Text, TextEditConfig);
