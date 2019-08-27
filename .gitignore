@@ -1,0 +1,28 @@
+.DS_Store
+*.log
+
+# Maven
+target/
+
+# SPA
+build/
+dist/
+node/
+node_modules/
+.env*.local
+.npmrc
+
+# Tests
+coverage/
+
+# Generated clientlib
+ui.apps/src/main/content/jcr_root/apps/mysamplespa/clientlibs/mysamplespa-react/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ
+.idea/
+*.iml
